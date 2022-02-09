@@ -18,6 +18,9 @@
             <div class="col-8">
                 <div class="card">
                     <div class="card-body">
+                        <div class="card-title" v-if="is_admin">
+                            {{user}}
+                        </div>
                         <b-overlay :show="loading">
                             <template #overlay>
                                 <atom-loader></atom-loader>
@@ -58,6 +61,10 @@
                 type:     Boolean,
                 required: false,
                 default:  false,
+            },
+            user: {
+                type:     String,
+                required: false,
             }
         },
         data() {

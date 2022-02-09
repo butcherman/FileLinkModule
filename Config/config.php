@@ -38,7 +38,7 @@ return [
             'perm_name' => 'Manage File Links',
             'name'      => 'Manage File Links',
             'icon'      => 'fas fa-tools',
-            'route'     => 'FileLinkModule.index',
+            'route'     => 'FileLinkModule.admin.index',
         ],
     ],
 

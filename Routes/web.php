@@ -11,6 +11,7 @@
 |
 */
 
+use Modules\FileLinkModule\Http\Controllers\AdminController;
 use Modules\FileLinkModule\Http\Controllers\FileLinkFileController;
 use Modules\FileLinkModule\Http\Controllers\FileLinkModuleController;
 use Modules\FileLinkModule\Http\Controllers\GuestFileUploadController;
@@ -24,7 +25,7 @@ Route::prefix('file-links')->name('FileLinkModule.')->group(function()
      * Authorized User routes for using File Links
      */
     Route::middleware('auth')->group(function() {
-        Route::put('files/{id}/update',     [FileLinkFileController::class, 'update']) ->name('files.update');
+        Route::put(   'files/{id}/update',     [FileLinkFileController::class, 'update']) ->name('files.update');
         Route::delete('files/{id}/destroy', [FileLinkFileController::class, 'destroy'])->name('files.destroy');
 
         Route::get(    '{id}/edit',   [FileLinkModuleController::class, 'edit'])   ->name('edit');
@@ -34,6 +35,15 @@ Route::prefix('file-links')->name('FileLinkModule.')->group(function()
         Route::get(    '{id}',        [FileLinkModuleController::class, 'show'])   ->name('show');
         Route::post(   '/',           [FileLinkModuleController::class, 'store'])  ->name('store');
         Route::get(    '/',           [FileLinkModuleController::class, 'index'])  ->name('index');
+
+        /**
+         * Administration routes for Module
+         */
+        Route::prefix('administration/file-link-module')->name('admin.')->group(function()
+        {
+            Route::get('/',           [AdminController::class, 'index'])->name('index');
+            Route::get('{username}',  [AdminController::class, 'show'])->name('show');
+        });
     });
 });
 
