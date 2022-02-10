@@ -1,0 +1,24 @@
+{
+    "name": "butcherman/filelinkmodule",
+    "description": "",
+    "type": "tech-bench-module",
+    "authors": [
+        {
+            "name": "Butcherman",
+            "email": "ronbutcher@att.net"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [],
+            "aliases": {
+
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\FileLinkModule\\": ""
+        }
+    }
+}

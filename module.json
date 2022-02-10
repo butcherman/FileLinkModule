@@ -1,0 +1,16 @@
+{
+    "name": "FileLinkModule",
+    "alias": "filelinkmodule",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\FileLinkModule\\Providers\\FileLinkModuleServiceProvider",
+        "Modules\\FileLinkModule\\Providers\\EventServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": {
+        "Tech_Bench": "6.0"
+    }
+}
