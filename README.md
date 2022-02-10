@@ -6,7 +6,9 @@ By using this feature, users can securely pass files to customers that may be to
 
 ## Installation
 
-To install this module, drop it into the "Modules" folder in the Root of your Tech Bench application.  From the command prompt, navigate to the root directory of your Tech Bench installation and enter the following command:
+To install this module:
+
+Unzip the file and drop the "FileLinkModule" folder into the "Modules" folder in the Root of your Tech Bench application.  From the command prompt, navigate to the root directory of your Tech Bench installation and enter the following command:
 
 ```
 php artisan tb_module:activate FileLinkModule
