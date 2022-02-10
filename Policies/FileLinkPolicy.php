@@ -9,11 +9,16 @@ use Modules\FileLinkModule\Entities\FileLink;
 
 class FileLinkPolicy
 {
-    use HandlesAuthorization;
     use AllowTrait;
+    use HandlesAuthorization;
 
     protected $useString    = 'Use File Links';
     protected $manageString = 'Manage File Links';
+
+    public function manage(User $user)
+    {
+        return $this->checkPermission($user, $this->manageString);
+    }
 
     public function viewAny(User $user)
     {
