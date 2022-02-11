@@ -5,7 +5,7 @@ return [
     *   Basic Module Information - Name and Version
     */
     'name' => 'FileLinkModule',
-    'ver'  => '1.0.0-dev',
+    'ver'  => '1.0.0',
 
     /*
     *   Information for the Navbar
@@ -18,17 +18,6 @@ return [
             'route'     => 'FileLinkModule.index',
         ],
     ],
-
-    /**
-     * If you would rather have a button link on the Dashboard page, use this section
-     */
-//    'dashboard_tool' => [
-//        [
-//            'name'  => 'Testing Module Tool',
-//            'icon'  => 'far fa-smile',
-//            'route' => 'TestingModule.index',
-//        ],
-//    ],
 
     /*
     *   Information for the Administration home page navigation links

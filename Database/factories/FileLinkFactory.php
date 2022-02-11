@@ -1,10 +1,12 @@
 <?php
 namespace Modules\FileLinkModule\Database\factories;
 
-use App\Models\User;
 use Carbon\Carbon;
-use Illuminate\Database\Eloquent\Factories\Factory;
+
+use App\Models\User;
+
 use Illuminate\Support\Str;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
 class FileLinkFactory extends Factory
 {
@@ -28,4 +30,3 @@ class FileLinkFactory extends Factory
         ];
     }
 }
-

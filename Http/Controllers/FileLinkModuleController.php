@@ -11,13 +11,10 @@ use App\Http\Controllers\Controller;
 
 use Modules\FileLinkModule\Entities\FileLink;
 use Modules\FileLinkModule\Entities\FileLinkFile;
-
 use Modules\FileLinkModule\Traits\FileLinkTrait;
-
 use Modules\FileLinkModule\Events\FileLinkCreatedEvent;
 use Modules\FileLinkModule\Events\FileLinkDeletedEvent;
 use Modules\FileLinkModule\Events\FileLinkUpdatedEvent;
-
 use Modules\FileLinkModule\Http\Requests\FileLinkRequest;
 
 class FileLinkModuleController extends Controller

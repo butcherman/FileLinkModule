@@ -3,8 +3,6 @@
 namespace Modules\FileLinkModule\Listeners;
 
 use App\Models\User;
-use Illuminate\Queue\InteractsWithQueue;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Support\Facades\Notification;
 use Modules\FileLinkModule\Notifications\GuestFileNotification;
 
