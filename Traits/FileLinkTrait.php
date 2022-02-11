@@ -4,6 +4,7 @@ namespace Modules\FileLinkModule\Traits;
 
 use App\Models\User;
 use App\Traits\FileTrait;
+
 use Modules\FileLinkModule\Entities\FileLink;
 use Modules\FileLinkModule\Entities\FileLinkFile;
 use Modules\FileLinkModule\Events\FileLinkFileAddedEvent;

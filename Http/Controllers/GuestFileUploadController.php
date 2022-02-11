@@ -3,14 +3,15 @@
 namespace Modules\FileLinkModule\Http\Controllers;
 
 use Inertia\Inertia;
-use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
+
 use App\Http\Controllers\Controller;
+
+use Modules\FileLinkModule\Traits\FileLinkTrait;
 use Modules\FileLinkModule\Entities\FileLink;
 use Modules\FileLinkModule\Entities\FileLinkFile;
 use Modules\FileLinkModule\Events\GuestFileUploadedEvent;
 use Modules\FileLinkModule\Http\Requests\GuestFileUploadRequest;
-use Modules\FileLinkModule\Traits\FileLinkTrait;
 
 class GuestFileUploadController extends Controller
 {

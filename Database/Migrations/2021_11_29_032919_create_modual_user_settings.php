@@ -1,14 +1,13 @@
 <?php
 
+use Illuminate\Database\Migrations\Migration;
+
 use App\Models\User;
-use App\Models\UserRolePermissions;
-use App\Models\UserRolePermissionTypes;
 use App\Models\UserRoles;
 use App\Models\UserSetting;
 use App\Models\UserSettingType;
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Database\Migrations\Migration;
+use App\Models\UserRolePermissions;
+use App\Models\UserRolePermissionTypes;
 
 class CreateModualUserSettings extends Migration
 {

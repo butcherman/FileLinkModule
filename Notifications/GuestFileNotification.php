@@ -3,6 +3,7 @@
 namespace Modules\FileLinkModule\Notifications;
 
 use App\Models\UserSetting;
+
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;

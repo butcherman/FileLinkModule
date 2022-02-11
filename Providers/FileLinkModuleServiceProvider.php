@@ -3,7 +3,6 @@
 namespace Modules\FileLinkModule\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Illuminate\Database\Eloquent\Factory;
 
 class FileLinkModuleServiceProvider extends ServiceProvider
 {
