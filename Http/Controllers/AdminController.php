@@ -3,9 +3,7 @@
 namespace Modules\FileLinkModule\Http\Controllers;
 
 use Inertia\Inertia;
-
 use App\Http\Controllers\Controller;
-
 use Modules\FileLinkModule\Entities\User;
 use Modules\FileLinkModule\Entities\FileLink;
 
