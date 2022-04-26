@@ -30,6 +30,7 @@
                                     <dropzone-upload
                                         ref="dropzone-upload"
                                         :max-files="5"
+                                        :public="true"
                                         disk="fileLinks"
                                         @upload-canceled="canceled"
                                         @upload-progress="updateProgressbar"

@@ -17,6 +17,7 @@ class FileLinkModuleServiceProvider extends ServiceProvider
         $this->registerTranslations();
         $this->registerConfig();
         $this->registerDisk();
+        $this->registerCommands();
         $this->loadMigrationsFrom(module_path($this->moduleName, 'Database/Migrations'));
     }
 
@@ -70,5 +71,15 @@ class FileLinkModuleServiceProvider extends ServiceProvider
     public function provides()
     {
         return [];
+    }
+
+    /**
+     * Register Artisan Commands
+     */
+    public function registerCommands()
+    {
+        $this->commands([
+            \Modules\FileLinkModule\Console\FixPublicLinkCommand::class,
+        ]);
     }
 }

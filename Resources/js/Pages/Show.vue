@@ -79,6 +79,7 @@
                     ref="dropzone-upload"
                     :max-files="5"
                     :folder="details.link_id"
+                    :public="true"
                     disk="fileLinks"
                     @upload-progress="updateProgressbar"
                     @completed="uploadDone"
