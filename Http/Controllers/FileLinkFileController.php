@@ -42,6 +42,8 @@ class FileLinkFileController extends Controller
         $this->authorize('viewAny', FileLink::class);
 
         $file->delete();
+        $this->deleteFile($file->file_id);
+
         event(new FileLinkFileDeletedEvent($link, $file));
         return back()->with([
             'message' => 'File Deleted',
