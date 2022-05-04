@@ -31,13 +31,13 @@ Route::prefix('links')->name('FileLinkModule.')->group(function()
         Route::put(   'files/{id}/update',     [FileLinkFileController::class, 'update']) ->name('files.update');
         Route::delete('files/{id}/destroy',    [FileLinkFileController::class, 'destroy'])->name('files.destroy');
 
-        Route::get(    '{id}/edit',   [FileLinkModuleController::class, 'edit'])   ->name('edit');
+        Route::get(    '{id}/edit',   [FileLinkModuleController::class, 'edit'])   ->name('edit')  ->breadcrumb('Edit File Link', '.show');
         Route::delete( '{id}/delete', [FileLinkModuleController::class, 'destroy'])->name('destroy');
-        Route::get(    'create',      [FileLinkModuleController::class, 'create']) ->name('create');
+        Route::get(    'create',      [FileLinkModuleController::class, 'create']) ->name('create')->breadcrumb('New File Link', '.index');
         Route::put(    '{id}',        [FileLinkModuleController::class, 'update']) ->name('update');
-        Route::get(    '{id}',        [FileLinkModuleController::class, 'show'])   ->name('show');
+        Route::get(    '{id}',        [FileLinkModuleController::class, 'show'])   ->name('show')  ->breadcrumb('Link Details', '.index');
         Route::post(   '/',           [FileLinkModuleController::class, 'store'])  ->name('store');
-        Route::get(    '/',           [FileLinkModuleController::class, 'index'])  ->name('index');
+        Route::get(    '/',           [FileLinkModuleController::class, 'index'])  ->name('index') ->breadcrumb('File Links');
 
         /**
          * Administration routes for Module

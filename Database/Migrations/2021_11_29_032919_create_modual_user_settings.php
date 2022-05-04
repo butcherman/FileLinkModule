@@ -65,8 +65,43 @@ class CreateModualUserSettings extends Migration
      */
     public function down()
     {
-        UserSettingType::where('name', 'Auto Delete Expired Links (after 30 days)')->delete();
-        UserRolePermissionTypes::where('description', 'Manage File Links')->delete();
-        UserRolePermissionTypes::where('description', 'Use File Links')->delete();
+        $settings        = ['Auto Delete Expired Links (after 30 days)'];
+        $permissionTypes = ['Manage File Links', 'Use File Links'];
+
+        //  Remove the User Settings options
+        foreach($settings as $set)
+        {
+            //  Get the Setting type so we can use the setting_type_id
+            $setting = UserSettingType::where('name', $set)->first();
+
+            $permissions = UserSetting::where('setting_type_id', $setting->setting_type_id)->get();
+            foreach($permissions as $perm)
+            {
+                $perm->delete();
+            }
+
+            $setting->delete();
+        }
+
+        //  Remove the User Role Permission options
+        foreach($permissionTypes as $set)
+        {
+            //  Get the permission type so we can use the perm_type_id
+            $setting = UserRolePermissionTypes::where('description', $set)->first();
+
+            $permissions = UserRolePermissions::where('perm_type_id', $setting->perm_type_id)->get();
+            foreach($permissions as $perm)
+            {
+                $perm->delete();
+            }
+
+            $setting->delete();
+        }
+
+
+
+        // UserSettingType::where('name', 'Auto Delete Expired Links (after 30 days)')->delete();
+        // UserRolePermissionTypes::where('description', 'Manage File Links')->delete();
+        // UserRolePermissionTypes::where('description', 'Use File Links')->delete();
     }
 }
