@@ -18,8 +18,9 @@ use Modules\FileLinkModule\Http\Controllers\GuestFileUploadController;
 
 Route::prefix('file-links')->name('FileLinkModule.')->group(function()
 {
-    Route::get('{hash}', [GuestFileUploadController::class, 'show'])->name('guest');
-    Route::put('{hash}', [GuestFileUploadController::class, 'update'])->name('guest.update');
+    Route::get('{hash}',      [GuestFileUploadController::class, 'show'])->name('guest');
+    Route::get('show/{hash}', [GuestFileUploadController::class, 'show']);
+    Route::put('{hash}',      [GuestFileUploadController::class, 'update'])->name('guest.update');
 });
 
 Route::prefix('links')->name('FileLinkModule.')->group(function()
