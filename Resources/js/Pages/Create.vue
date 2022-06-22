@@ -11,21 +11,55 @@
                     <div class="card-body">
                         <b-overlay :show="submitted">
                             <template #overlay>
-                                <progress-bar v-if="uploading" :percent-done="fileProgress" />
+                                <progress-bar
+                                    v-if="uploading"
+                                    :percent-done="fileProgress"
+                                />
                                 <form-loader v-else />
                             </template>
                             <ValidationObserver v-slot="{handleSubmit}">
-                                <b-form @submit.prevent="handleSubmit(submitForm)" novalidate>
-                                    <text-input v-model="form.link_name" label="Link Name" name="name" placeholder="Enter a user friendly name for this link" rules="required"></text-input>
-                                    <date-picker v-model="form.expire" label="Expires Date" name="expires" placeholder="Select the date the link expires" rules="required"></date-picker>
-                                    <b-form-checkbox v-model="form.allow_upload" switch>
+                                <b-form
+                                    @submit.prevent="handleSubmit(submitForm)"
+                                    novalidate
+                                >
+                                    <text-input
+                                        v-model="form.link_name"
+                                        name="name"
+                                        rules="required"
+                                        label="Link Name"
+                                        placeholder="Enter a user friendly name for this link"
+                                    />
+                                    <date-picker
+                                        v-model="form.expire"
+                                        name="expires"
+                                        rules="required"
+                                        label="Expires Date"
+                                        placeholder="Select the date the link expires"
+                                    />
+                                    <b-form-checkbox
+                                        v-model="form.allow_upload"
+                                        switch
+                                    >
                                         Allow Visitor to Upload Files
                                     </b-form-checkbox>
                                     <div class="my-2 text-center">
-                                        <b-button pill @click="form.has_instructions = !form.has_instructions" variant="info">{{instructionText}}</b-button>
+                                        <b-button
+                                            pill
+                                            variant="info"
+                                            @click="form.has_instructions = !form.has_instructions"
+                                        >
+                                            {{instructionText}}
+                                        </b-button>
                                     </div>
-                                    <b-collapse id="instructions" :visible="form.has_instructions">
-                                        <text-editor v-model="form.instructions" placeholder="Enter Instructions" label="Instructions"></text-editor>
+                                    <b-collapse
+                                        id="instructions"
+                                        :visible="form.has_instructions"
+                                    >
+                                        <text-editor
+                                            v-model="form.instructions"
+                                            placeholder="Enter Instructions"
+                                            label="Instructions"
+                                        />
                                     </b-collapse>
                                     <dropzone-upload
                                         ref="dropzone-upload"
@@ -37,7 +71,10 @@
                                         @completed="createFileLink"
                                         @validation-error="canceled"
                                     />
-                                    <submit-button button_text="Create File Link" :submitted="submitted"></submit-button>
+                                    <submit-button
+                                        button_text="Create File Link"
+                                        :submitted="submitted"
+                                    />
                                 </b-form>
                             </ValidationObserver>
                         </b-overlay>

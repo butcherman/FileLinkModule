@@ -9,7 +9,15 @@
             <div class="col-8">
                 <div class="card">
                     <div class="card-body text-center">
-                        <inertia-link :href="route('FileLinkModule.create')" as="b-button" pill variant="primary" size="lg"><i class="fas fa-plus"></i> Create New File Link</inertia-link>
+                        <inertia-link
+                            :href="route('FileLinkModule.create')"
+                            as="b-button"
+                            variant="primary"
+                            pill
+                        >
+                            <i class="fas fa-plus" />
+                            Create New File Link
+                        </inertia-link>
                     </div>
                 </div>
             </div>
@@ -23,20 +31,45 @@
                         </div>
                         <b-overlay :show="loading">
                             <template #overlay>
-                                <atom-loader></atom-loader>
+                                <atom-loader />
                             </template>
                             <div v-if="link_list.length == 0">
                                 <h5 class="text-center">No File Links</h5>
                             </div>
-                            <b-table v-else striped :items="link_list" :fields="fields" empty-text="No File Links" responsive show-empty :tbody-tr-class="getRowClass">
+                            <b-table
+                                v-else
+                                :fields="fields"
+                                :items="link_list"
+                                :tbody-tr-class="getRowClass"
+                                empty-text="No File Links"
+                                striped
+                                responsive
+                                show-empty
+                            >
                                 <template #cell(link_name)="data">
-                                    <inertia-link :href="route('FileLinkModule.show', data.item.link_id)">{{data.item.link_name}}</inertia-link>
+                                    <inertia-link
+                                        :href="route('FileLinkModule.show', data.item.link_id)"
+                                    >
+                                        {{data.item.link_name}}
+                                    </inertia-link>
                                 </template>
                                 <template #cell(actions)="data">
-                                    <inertia-link v-if="data.item.length > 0 && !data.item.is_expired" :href="route('FileLinkModule.disable', data.item.link_id)" @click="loading = true" class="pointer text-muted" title="Disable Link" v-b-tooltip.hover>
-                                        <i class="fas fa-unlink pointer"></i>
+                                    <inertia-link
+                                        v-if="data.item.length > 0 && !data.item.is_expired"
+                                        :href="route('FileLinkModule.disable', data.item.link_id)"
+                                        title="Disable Link"
+                                        class="pointer text-muted"
+                                        v-b-tooltip.hover
+                                        @click="loading = true"
+                                    >
+                                        <i class="fas fa-unlink pointer" />
                                     </inertia-link>
-                                    <i class="fas fa-trash-alt pointer text-muted" title="Delete Link" v-b-tooltip.hover @click="deleteLink(data.item.link_id)"></i>
+                                    <i
+                                        class="fas fa-trash-alt pointer text-danger"
+                                        title="Delete Link"
+                                        v-b-tooltip.hover
+                                        @click="deleteLink(data.item.link_id)"
+                                    />
                                 </template>
                             </b-table>
                         </b-overlay>
@@ -93,18 +126,6 @@
                     },
                 ]
             }
-        },
-        created() {
-            //
-        },
-        mounted() {
-            //
-        },
-        computed: {
-            //
-        },
-        watch: {
-            //
         },
         methods: {
             getRowClass(row)

@@ -11,6 +11,9 @@
     "aliases": {},
     "files": [],
     "requires": {
-        "Tech_Bench": "6.0"
+        "Tech_Bench": "6.3",
+        "npm" : [
+            "vue-clipboard2"
+        ]
     }
 }

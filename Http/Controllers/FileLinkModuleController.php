@@ -65,7 +65,10 @@ class FileLinkModuleController extends Controller
         $this->processNewFiles($newLink, true, $request->user());
 
         event(new FileLinkCreatedEvent($newLink));
-        return redirect(route('FileLinkModule.show', $newLink->link_id));
+        return redirect(route('FileLinkModule.show', $newLink->link_id))->with([
+            'message' => 'New File Link Created',
+            'type' => 'success',
+        ]);
     }
 
     /**
@@ -77,7 +80,7 @@ class FileLinkModuleController extends Controller
         $this->authorize('view', $link);
 
         return Inertia::render('FileLinkModule::Show', [
-            'details' => $link,
+            'details' => fn () => $link,
         ]);
     }
 
