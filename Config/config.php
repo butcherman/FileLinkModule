@@ -5,7 +5,7 @@ return [
     *   Basic Module Information - Name and Version
     */
     'name' => 'FileLinkModule',
-    'ver'  => '1.0.3',
+    'ver'  => '1.1.0',
 
     /*
     *   Information for the Navbar
